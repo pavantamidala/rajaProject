@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+    {% include "./nav.html" %}
+    <h1> Academic Career </h1>
+    {% if tenth_marks %}
+    <table style="min-width:300px;max-width: 600px;" class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Subjects</th>
+                <th scope="col">Marks</th>
+            </tr>
+        </thead>
+   
+        <h5> Tenth Marks </h5> 
+    
+        {% for field in tenth_marks %}   
+        <tbody>
+            <tr>
+                <td scope="row"> {{field.tenth_sub_name}} </td>
+                <td scope="row"> {{field.tenth_marks}} </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% endif %}
+    {% if inter_marks %}
+<table style="min-width:300px;max-width: 600px;" class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Subjects</th>
+            <th scope="col">Marks</th>
+        </tr>
+    </thead>
+
+    <h5> Inter Marks </h5>
+        {% for field in inter_marks %}
+        <tbody>
+            <tr>
+                <td scope="row"> {{field.inter_sub_name}} </td>
+                <td scope="row"> {{field.inter_marks}} </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+</table>
+{% endif %}
+{% if engineer_marks %}
+<table style="min-width:300px;max-width: 600px;" class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Subjects</th>
+            <th scope="col">Marks</th>
+        </tr>
+    </thead>
+    
+    <h5> Engineering Marks </h5>
+      
+    {% for field in engineer_marks %}
+        <tbody>
+            <tr>
+                <td scope="row"> {{field.engineer_sub_name}} </td>
+                <td scope="row"> {{field.engineer_marks}} </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+</html>

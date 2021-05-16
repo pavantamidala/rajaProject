@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 97vw;
+        }
+        .profile{
+            position: absolute;
+            top:20px;
+            right:10vw;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p class="profile"> hi {{request.user}} </p>
+    {% if request.user.is_authenticated == True %}
+    <div class="navbar">
+
+        <a class="navbar-brand" href="{% url 'academic' %}">Academic</a>
+
+
+        <a class="nav-link" href="{% url 'personal' %}"> Personal Info </a>
+
+        <a class="nav-link" href=" {% url 'tests' %} ">Tests</a>
+        <a class="nav-link" href=" {% url 'logout_user' %} ">Logout</a>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated != True %}
+    <h4> <a href="{% url 'register' %}"> Register</a> </h4>
+    <h4> <a href="{% url 'login_user' %}"> Login </a> </h4>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
